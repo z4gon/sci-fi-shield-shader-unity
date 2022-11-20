@@ -12,6 +12,7 @@ Polyhedral sci-fi shield Shader implemented with HLSL/ShaderGraph and VFX Graph 
     - [UV Mapping](#uv-mapping)
     - [Import into Unity](#import-into-unity)
   - [Texture](#texture)
+  - [Integrate Spaceship from Asset Store](#integrate-spaceship-from-asset-store)
   - [Shader](#shader)
     - [Pure HLSL](#pure-hlsl)
     - [Shader Graph](#shader-graph)
@@ -22,6 +23,7 @@ Polyhedral sci-fi shield Shader implemented with HLSL/ShaderGraph and VFX Graph 
 
 - [Sci-Fi Shield VFX tutorial by Gabriel Aguiar](https://www.youtube.com/watch?v=IZAzckJaSO8)
 - [Star Sparrow Modular Spaceship](https://assetstore.unity.com/packages/3d/vehicles/space/star-sparrow-modular-spaceship-73167)
+- [VFACE Shader Semantics](https://forum.unity.com/threads/is-it-possible-to-determine-which-vertices-are-part-of-a-backface.538187/)
 
 ## Implementation
 
@@ -41,7 +43,7 @@ Polyhedral sci-fi shield Shader implemented with HLSL/ShaderGraph and VFX Graph 
 #### UV Mapping
 
 - Delete the default UV mapping and create a new one from scratch.
-- This will allow to group the faces with litte distortion, and maximize overlapping.
+- This will allow to group the faces with little distortion, and maximize overlapping.
 - Generate the UV map with both hexagon and pentagon shapes in.
 
 ![Picture](./docs/4.jpg)
@@ -58,3 +60,9 @@ Polyhedral sci-fi shield Shader implemented with HLSL/ShaderGraph and VFX Graph 
 
 ![Picture](./docs/6.jpg)
 ![Picture](./docs/7.jpg)
+
+### Integrate Spaceship from Asset Store
+
+- Download the package from the asset store.
+- Import the assets into the project.
+- Delete any assets that are not needed.
