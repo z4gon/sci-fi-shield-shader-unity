@@ -18,7 +18,7 @@ Polyhedral sci-fi shield Shader implemented with HLSL/ShaderGraph and VFX Graph 
   - [VFX Graph](#vfx-graph)
   - [Collisions](#collisions)
 
-### References
+### Resources
 
 - [Sci-Fi Shield VFX tutorial by Gabriel Aguiar](https://www.youtube.com/watch?v=IZAzckJaSO8)
 - [Star Sparrow Modular Spaceship](https://assetstore.unity.com/packages/3d/vehicles/space/star-sparrow-modular-spaceship-73167)
@@ -29,7 +29,7 @@ Polyhedral sci-fi shield Shader implemented with HLSL/ShaderGraph and VFX Graph 
 
 #### Polyhedral Sphere
 
-- Create an **Icosphere** in **Blender**.
+- Create an **Icosphere** in **Blender** with at least 3 levels of subdivision.
 - Apply a **Subdivision Modifier**.
 - Select similar vertices and dissolve them.
 - Make the surface only have hexagons and pentagons, like a soccer ball.
