@@ -1,53 +1,44 @@
-# Unity Template Project for URP
+# Sci-Fi Shield Shader
 
-{{YOUR_PROJECT_DESCRIPTION_HERE}} in **Unity 2021.3.10f1**
-
-### References
-
-- [Ref](https://adrianb.io/2014/08/09/perlinnoise.html)
-- [Ref](https://adrianb.io/2014/08/09/perlinnoise.html)
+Polyhedral sci-fi shield Shader implemented with HLSL/ShaderGraph and VFX Graph for the URP in **Unity 2021.3.10f1**
 
 ## Screenshots
 
-![Gif](./docs/1.gif)
-![Gif](./docs/1.gif)
+### Table Of Contents
 
-## Features
+- [Implementation](#implementation)
+  - [3D Mesh](#3d-mesh)
+    - [Polyhedral Sphere](#polyhedral-sphere)
+    - [UV Mapping](#uv-mapping)
+    - [Import into Unity](#import-into-unity)
 
-- [Feature](#feature)
-- [Feature](#feature)
-- [Feature](#feature)
+### References
 
----
+- [Sci-Fi Shield VFX tutorial by Gabriel Aguiar](https://www.youtube.com/watch?v=IZAzckJaSO8)
 
-## Feature
+## Implementation
 
-1. Implementation detail.
-1. Implementation detail.
-1. Implementation detail.
+### 3D Mesh
 
-![Gif](./docs/1.gif)
-![Gif](./docs/1.gif)
+#### Polyhedral Sphere
 
-## Feature
+- Create an **Icosphere** in **Blender**.
+- Apply a **Subdivision Modifier**.
+- Select similar vertices and dissolve them.
+- Make the surface only have hexagons and pentagons, like a soccer ball.
 
-1. Implementation detail.
-1. Implementation detail.
-1. Implementation detail.
+![Picture](./docs/1.jpg)
+![Picture](./docs/2.jpg)
+![Picture](./docs/3.jpg)
 
-![Gif](./docs/1.gif)
-![Gif](./docs/1.gif)
+#### UV Mapping
 
----
+- Delete the default UV mapping and create a new one from scratch.
+- This will allow to group the faces with litte distortion, and maximize overlapping.
+- Generate the UV map with both hexagon and pentagon shapes in.
 
-## Implementation explained
+![Picture](./docs/4.jpg)
 
-1. **Step**
+#### Import into Unity
 
-   1. Sub Step.
-   1. Sub Step.
-
-1. **Step**
-
-   1. Sub Step.
-   1. Sub Step.
+![Picture](./docs/5.jpg)
