@@ -183,6 +183,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8b52c4a2cbd2a8248b7c6e782e73497e, type: 2}
+    - target: {fileID: 5574359789974167677, guid: f805c7b2f982faf43833878e4f22ae2a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718746004109060295, guid: f805c7b2f982faf43833878e4f22ae2a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044567847581802712, guid: f805c7b2f982faf43833878e4f22ae2a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
 --- !u!4 &77159022 stripped
@@ -401,8 +416,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.058556102, y: 0.9403635, z: -0.21256424, w: 0.2590447}
-  m_LocalPosition: {x: -32.85703, y: 11.326173, z: 20.508684}
+  m_LocalRotation: {x: 0.041899372, y: 0.95777553, z: -0.21348137, w: 0.18797952}
+  m_LocalPosition: {x: -28.391066, y: 10.60767, z: 23.380527}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1081,6 +1096,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2bd34ca215750fc48902c734d2d5d80f, type: 2}
+    - target: {fileID: 5574359789974167677, guid: f805c7b2f982faf43833878e4f22ae2a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718746004109060295, guid: f805c7b2f982faf43833878e4f22ae2a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044567847581802712, guid: f805c7b2f982faf43833878e4f22ae2a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f805c7b2f982faf43833878e4f22ae2a, type: 3}
 --- !u!4 &696251748 stripped
@@ -1182,7 +1212,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 98f2203a799124417b5fd2c157eb3aff,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98f2203a799124417b5fd2c157eb3aff,
         type: 3}
@@ -1212,7 +1242,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 98f2203a799124417b5fd2c157eb3aff,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.88
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98f2203a799124417b5fd2c157eb3aff,
         type: 3}
@@ -1642,7 +1672,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 98f2203a799124417b5fd2c157eb3aff,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98f2203a799124417b5fd2c157eb3aff,
         type: 3}
@@ -1672,7 +1702,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 98f2203a799124417b5fd2c157eb3aff,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.88
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98f2203a799124417b5fd2c157eb3aff,
         type: 3}
@@ -1718,7 +1748,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e12b58ea332c84f9ebfb25d54fbe70bc, type: 2}
+      objectReference: {fileID: 2100000, guid: 0cb5adfce56da4fa78a9f5840703df85, type: 2}
     - target: {fileID: 919132149155446097, guid: 98f2203a799124417b5fd2c157eb3aff,
         type: 3}
       propertyPath: m_Name
