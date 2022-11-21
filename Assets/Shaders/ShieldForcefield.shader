@@ -3,7 +3,6 @@ Shader "Shield/Forcefield"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        [HDR] _ColorFront ("Color Front", Color) = (1,1,1,1)
         [HDR] _ColorBack ("Color Back", Color) = (1,1,1,1)
 
         _FresnelPower ("Fresnel Power", Float) = 1
@@ -23,7 +22,7 @@ Shader "Shield/Forcefield"
 
         Cull Off
         ZWrite Off
-        Blend SrcAlpha OneMinusSrcAlpha // Additive
+        Blend SrcAlpha OneMinusSrcAlpha
 
         Pass
         {
@@ -54,7 +53,6 @@ Shader "Shield/Forcefield"
             sampler2D _MainTex;
             float4 _MainTex_ST;
 
-            float4 _ColorFront;
             float4 _ColorBack;
 
             float _FresnelPower;
@@ -82,12 +80,12 @@ Shader "Shield/Forcefield"
                 return OUT;
             }
 
+            // VFACE input positive for frontbaces,
+            // negative for backfaces. Output one
+            // of the two colors depending on that.
             half4 frag(Varyings IN, half facing : VFACE) : SV_Target
             {
-                // VFACE input positive for frontbaces,
-                // negative for backfaces. Output one
-                // of the two colors depending on that.
-                half4 color = tex2D(_MainTex, IN.uv) * (facing > 0 ? _ColorFront : _ColorBack);
+                half4 color = tex2D(_MainTex, IN.uv);
 
                 // fresnelDot is zero when normal is 90 deg angle from view dir
                 float fresnelDot = dot(IN.worldNormal, IN.viewDir);
@@ -95,9 +93,7 @@ Shader "Shield/Forcefield"
                 fresnelDot = saturate(fresnelDot); // clamp to 0,1
                 float fresnelPow = pow(1.0f - fresnelDot, _FresnelPower);
 
-                half4 fresnel = fresnelPow * _FresnelColor;
-
-                return color;
+                return facing > 0 ? color * fresnelPow * _FresnelColor : color * _ColorBack;
             }
             ENDHLSL
         }

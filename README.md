@@ -15,6 +15,10 @@ Polyhedral sci-fi shield Shader implemented with HLSL/ShaderGraph and VFX Graph 
   - [Integrate Spaceship from Asset Store](#integrate-spaceship-from-asset-store)
   - [Shader](#shader)
     - [Pure HLSL](#pure-hlsl)
+      - [Shader Lab](#shader-lab)
+      - [Vertex Shader](#vertex-shader)
+      - [Fragment Shader](#fragment-shader)
+      - [Result](#result)
     - [Shader Graph](#shader-graph)
   - [VFX Graph](#vfx-graph)
   - [Collisions](#collisions)
@@ -70,3 +74,94 @@ Polyhedral sci-fi shield Shader implemented with HLSL/ShaderGraph and VFX Graph 
 
 ![Picture](./docs/8.jpg)
 ![Picture](./docs/9.jpg)
+
+### Shader
+
+#### Pure HLSL
+
+##### Shader Lab
+
+- Set the **RenderType** and **Queue** to **Transparent**.
+- Mark the Shader to target the **UniversalRenderPipeline**.
+
+```c
+Tags {
+    "RenderType" = "Transparent"
+    "Queue" = "Transparent"
+    "RenderPipeline" = "UniversalRenderPipeline"
+}
+```
+
+- Set **Cull Off** to render both sides.
+- Disable **ZWrite**.
+- Implement an **Alpha Blend**.
+
+```c
+Cull Off
+ZWrite Off
+Blend SrcAlpha OneMinusSrcAlpha
+```
+
+- Parametrize the **MainTexture**, a **Color** for the inner faces, and the parameters for the **Fresnel** effect in the front.
+- Parametrize the amount and speed of the **displacement** animation.
+- Use **HDR** mode for the colors.
+
+```c
+_MainTex ("Texture", 2D) = "white" {}
+[HDR] _ColorBack ("Color Back", Color) = (1,1,1,1)
+
+_FresnelPower ("Fresnel Power", Float) = 1
+[HDR] _FresnelColor ("Fresnel Color", Color) = (1,1,1,1)
+
+_DisplacementAmount ("Displacement Amount", Float) = 1.0
+_AnimationSpeed ("Animation Speed", Float) = 1.0
+```
+
+##### Vertex Shader
+
+- Displace the vertices in the **Vertex Shader Stage**.
+
+```c
+// displace faces along the normals
+float displacementAmount =  ((sin(_Time.y * _AnimationSpeed) + 1) / 2) * _DisplacementAmount;
+float3 displacedPostitionOS =  IN.positionOS.xyz + (IN.normal.xyz * displacementAmount);
+OUT.positionHCS = TransformObjectToHClip(displacedPostitionOS);
+```
+
+- Calculate the **world normal** and the **view dir**, for later computing the **Fresnel** in the **Fragment Shader**.
+
+```c
+float3 positionW = TransformObjectToWorld(IN.positionOS.xyz);
+OUT.viewDir = normalize(_WorldSpaceCameraPos.xyz - positionW.xyz);
+
+OUT.worldNormal = TransformObjectToWorldNormal(IN.normal.xyz, true);
+```
+
+##### Fragment Shader
+
+- Calculate the **Fresnel** effect.
+
+```c
+// fresnelDot is zero when normal is 90 deg angle from view dir
+float fresnelDot = dot(IN.worldNormal, IN.viewDir);
+
+fresnelDot = saturate(fresnelDot); // clamp to 0,1
+float fresnelPow = pow(1.0f - fresnelDot, _FresnelPower);
+```
+
+- Return the corresponding color using the **VFACE** semantics to detect if the face is facing the camera or not.
+
+```c
+// VFACE input positive for frontbaces,
+// negative for backfaces. Output one
+// of the two colors depending on that.
+half4 frag(Varyings IN, half facing : VFACE) : SV_Target
+{
+    ...
+    return facing > 0 ? color * fresnelPow * _FresnelColor : color * _ColorBack;
+}
+```
+
+##### Result
+
+![Picture](./docs/10.jpg)

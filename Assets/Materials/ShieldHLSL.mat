@@ -82,7 +82,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _AnimationSpeed: 2
+    - _AnimationSpeed: 3
     - _Blend: 0
     - _BlendOp: 0
     - _BumpScale: 1
@@ -95,7 +95,7 @@ Material:
     - _DisplacementAmount: 1
     - _DstBlend: 10
     - _EnvironmentReflections: 1
-    - _FresnelPower: 1
+    - _FresnelPower: 1.68
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossinessSource: 0
@@ -119,10 +119,10 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0, g: 0.5823258, b: 0.8509804, a: 0.654902}
     - _Color: {r: 0, g: 1.1607844, b: 1.4980392, a: 0.49019608}
-    - _ColorBack: {r: 1.0495387, g: 0, b: 2.2561, a: 1}
+    - _ColorBack: {r: 0.43862528, g: 0, b: 2.2561, a: 1}
     - _ColorFront: {r: 0, g: 1.7965113, b: 2.433572, a: 0.6313726}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelColor: {r: 3.6963053, g: 3.0159929, b: 0.5404974, a: 0}
+    - _FresnelColor: {r: 22.363522, g: 8.662507, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &551111636733008452
