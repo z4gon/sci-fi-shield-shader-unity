@@ -20,6 +20,9 @@ Polyhedral sci-fi shield Shader implemented with HLSL/ShaderGraph and VFX Graph 
       - [Fragment Shader](#fragment-shader)
       - [Perlin Noise](#perlin-noise)
     - [Shader Graph](#shader-graph)
+      - [Fresnel Front Color and Back Color](#fresnel-front-color-and-back-color)
+      - [Perlin Noise Custom Function Node](#perlin-noise-custom-function-node)
+      - [Vertex Displacement](#vertex-displacement)
   - [VFX Graph](#vfx-graph)
   - [Collisions](#collisions)
 
@@ -190,3 +193,30 @@ float3 displacedPostitionOS =  IN.positionOS.xyz + (IN.normal.xyz * displacement
 ```
 
 ![Picture](./docs/11.jpg)
+
+#### Shader Graph
+
+##### Fresnel Front Color and Back Color
+
+- Implement the **Back Color** and the **Front Fresnel Color**.
+- Use a **Branch** Node and a **Is Front Face** Node to decide which to use.
+
+![Picture](./docs/12.jpg)
+
+##### Perlin Noise Custom Function Node
+
+- Use a **Custom Function** Node to use the PerlinNoise HLSL Function.
+
+![Picture](./docs/13.jpg)
+
+- Use the **X and Y coordinates of the normal in object space** to calculate the perlin noise.
+- **Multiply** the perlin noise value by the **DisplacementAmount**, and then **clamp** it.
+
+![Picture](./docs/14.jpg)
+
+##### Vertex Displacement
+
+- **Displace** the **vertices** along the **normals** using this calculated displacement.
+
+![Picture](./docs/15.jpg)
+![Picture](./docs/16.jpg)
