@@ -66,3 +66,7 @@ Polyhedral sci-fi shield Shader implemented with HLSL/ShaderGraph and VFX Graph 
 - Download the package from the asset store.
 - Import the assets into the project.
 - Delete any assets that are not needed.
+- Setup a scene with the assets.
+
+![Picture](./docs/8.jpg)
+![Picture](./docs/9.jpg)
