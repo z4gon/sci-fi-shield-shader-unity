@@ -34,6 +34,7 @@ Shader "Shield/Forcefield"
             // macros and functions, and also contains #include references to other
             // HLSL files (for example, Common.hlsl, SpaceTransforms.hlsl, etc.).
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "./shared/PerlinNoise.hlsl"
 
             struct Attributes
             {
@@ -65,8 +66,20 @@ Shader "Shield/Forcefield"
             {
                 Varyings OUT;
 
+                // generate perlin noise for the given UVs in the second UV map
+                float noise;
+                PerlinNoise_float(
+                    IN.normal.xy,
+                    5,
+                    5,
+                    noise,
+                    _Time.y * _AnimationSpeed
+                );
+
                 // displace faces along the normals
-                float displacementAmount =  ((sin(_Time.y * _AnimationSpeed) + 1) / 2) * _DisplacementAmount;
+                float displacementAmount =  noise * _DisplacementAmount;
+                displacementAmount = clamp(displacementAmount, -_DisplacementAmount, _DisplacementAmount);
+
                 float3 displacedPostitionOS =  IN.positionOS.xyz + (IN.normal.xyz * displacementAmount);
                 OUT.positionHCS = TransformObjectToHClip(displacedPostitionOS);
 

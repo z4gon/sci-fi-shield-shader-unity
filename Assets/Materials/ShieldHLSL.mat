@@ -92,7 +92,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DisplacementAmount: 1
+    - _DisplacementAmount: 0.3
     - _DstBlend: 10
     - _EnvironmentReflections: 1
     - _FresnelPower: 1.68

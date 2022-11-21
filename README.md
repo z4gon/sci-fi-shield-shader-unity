@@ -18,7 +18,7 @@ Polyhedral sci-fi shield Shader implemented with HLSL/ShaderGraph and VFX Graph 
       - [Shader Lab](#shader-lab)
       - [Vertex Shader](#vertex-shader)
       - [Fragment Shader](#fragment-shader)
-      - [Result](#result)
+      - [Perlin Noise](#perlin-noise)
     - [Shader Graph](#shader-graph)
   - [VFX Graph](#vfx-graph)
   - [Collisions](#collisions)
@@ -162,6 +162,31 @@ half4 frag(Varyings IN, half facing : VFACE) : SV_Target
 }
 ```
 
-##### Result
-
 ![Picture](./docs/10.jpg)
+
+##### Perlin Noise
+
+- Calculate a **Perlin Noise** value using the **normal.xy** coordinates.
+- This way, all vertices of the same face will compute the same **Perlin Noise** value, because the faces are planar and all normals are the same for the same face.
+- Multiplying this **Perlin Noise** by the displacement amount, will make individual faces move separately from the rest.
+- Generating an effect of disarray.
+
+```c
+// generate perlin noise for the given UVs in the second UV map
+float noise;
+PerlinNoise_float(
+    IN.normal.xy,
+    5,
+    5,
+    noise,
+    _Time.y * _AnimationSpeed
+);
+
+// displace faces along the normals
+float displacementAmount =  noise * _DisplacementAmount;
+displacementAmount = clamp(displacementAmount, -_DisplacementAmount, _DisplacementAmount);
+
+float3 displacedPostitionOS =  IN.positionOS.xyz + (IN.normal.xyz * displacementAmount);
+```
+
+![Picture](./docs/11.jpg)
