@@ -23,6 +23,7 @@ Polyhedral sci-fi shield Shader implemented with HLSL/ShaderGraph and VFX Graph 
       - [Fresnel Front Color and Back Color](#fresnel-front-color-and-back-color)
       - [Perlin Noise Custom Function Node](#perlin-noise-custom-function-node)
       - [Vertex Displacement](#vertex-displacement)
+  - [Animations](#animations)
   - [VFX Graph](#vfx-graph)
   - [Collisions](#collisions)
 
@@ -220,3 +221,10 @@ float3 displacedPostitionOS =  IN.positionOS.xyz + (IN.normal.xyz * displacement
 
 ![Picture](./docs/15.jpg)
 ![Picture](./docs/16.jpg)
+
+### Animations
+
+- Add basic animations to the mines and the spaceships.
+
+![Picture](./docs/17.jpg)
+![Picture](./docs/18.jpg)
