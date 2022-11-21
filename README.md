@@ -228,3 +228,17 @@ float3 displacedPostitionOS =  IN.positionOS.xyz + (IN.normal.xyz * displacement
 
 ![Picture](./docs/17.jpg)
 ![Picture](./docs/18.jpg)
+
+### VFX Graph
+
+- Install the **Visual Effect Graph** package.
+
+![Picture](./docs/19.jpg)
+
+- Enable **"Support for VFX Graph"** in the **Shader Graph**.
+- Make the VFX Graph just spawn one single particle.
+- Use the **Output Particle Unlit Mesh** Node.
+- Set **Size over Lifetime** to create an animation effect.
+- Set **Color over Lifetime** by using **Age over Lifetime** and **Sample Gradient**, and passing these values to the Material Color for the Shield.
+
+![Picture](./docs/20.jpg)
