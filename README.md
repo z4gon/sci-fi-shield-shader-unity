@@ -6,6 +6,9 @@ Polyhedral sci-fi shield Shader implemented with HLSL/ShaderGraph and VFX Graph 
 
 ![Picture](./docs/21.jpg)
 
+https://user-images.githubusercontent.com/4588601/203019791-321a859b-726b-42b7-ae2d-a11963607544.mp4
+https://user-images.githubusercontent.com/4588601/203019824-6d8e88b6-223f-4729-959b-22dfdb63702f.mp4
+
 ### Table Of Contents
 
 - [Implementation](#implementation)
