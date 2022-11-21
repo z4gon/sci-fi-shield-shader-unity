@@ -49,12 +49,12 @@ float2 gradient(int seed, float time)
 
 // perlin noise 0 to 1
 // https://adrianb.io/2014/08/09/perlinnoise.html
-void PerlinNoise_float(
+void PerlinNoise_half(
     in float2 uv,
     in int columns,
     in int rows,
-    out float noise,
-    in float time = 1
+    in float time,
+    out half noise
 )
 {
     // square dimensions

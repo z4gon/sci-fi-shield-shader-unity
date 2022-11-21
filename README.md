@@ -174,7 +174,7 @@ half4 frag(Varyings IN, half facing : VFACE) : SV_Target
 ```c
 // generate perlin noise for the given UVs in the second UV map
 float noise;
-PerlinNoise_float(
+PerlinNoise_half(
     IN.normal.xy,
     5,
     5,

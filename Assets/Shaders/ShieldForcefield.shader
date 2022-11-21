@@ -67,13 +67,13 @@ Shader "Shield/Forcefield"
                 Varyings OUT;
 
                 // generate perlin noise for the given UVs in the second UV map
-                float noise;
-                PerlinNoise_float(
+                half noise;
+                PerlinNoise_half(
                     IN.normal.xy,
                     5,
                     5,
-                    noise,
-                    _Time.y * _AnimationSpeed
+                    _Time.y * _AnimationSpeed,
+                    noise
                 );
 
                 // displace faces along the normals
